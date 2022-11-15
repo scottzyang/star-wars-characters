@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Star Wars Character Search!
+{% endblock % }
+
+
+{& block content %}
+<header>
+  <h1>Search Star Wars character!</h1>
+</header>
+<form>
+  <fieldset>
+    <legend>Character Search</legend>
+    <form>
+      <label for="character-search">
+        Type in a random number between 1 and 88 to randomly generate a character!
+      </label>
+      <input type="text" name="search-input" id="character-search">
+      <input type="submit" name="search-submit" value="Search for Character!">
+    </form>
+  </fieldset>
+</form>
+
+<section id="form-results">
+  <h2>Here is your character information!</h2>
+  <p>Your selected character was <em>__________</em></p>
+</section>
+{% endblock %}

@@ -12,7 +12,7 @@ Star Wars Character Search!
 <form>
   <fieldset>
     <legend>Character Search</legend>
-    <form action="/character" method="GET">
+    <form action="/" method="GET">
       <label for="character-search">
         Type in a random number between 1 and 88 to randomly generate a character!
       </label>
@@ -24,6 +24,6 @@ Star Wars Character Search!
 
 <section id="form-results">
   <h2>Here is your character information!</h2>
-  <p>Your selected character was <em>{{character_info.name}}</em></p>
+  <p>Your selected character was <b>{{character_info.name}}</b></p>
 </section>
 {% endblock %}

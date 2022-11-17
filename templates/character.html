@@ -2,12 +2,16 @@
 
 {% block title %}
 <title>Star Wars Character Search!</title>
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../static/styles/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 {% endblock %}
 
 
 {% block content %}
 <header>
+  <img id="main-img"src="../static/star-wars-logo.webp" alt="yellow font of star wars logo" width="700">
   <h1>Search Star Wars character!</h1>
 </header>
 <fieldset>
@@ -23,20 +27,27 @@
 
 <section id="form-results">
   <h2>Here is your character information!</h2>
-  <p>Your selected character was <b>{{character_info.name}}</b></p>
-  <p>Information:</p>
-  <ul>
-    <li>Height (cm): {{character_info.height}}</li>
-    <li>Mass (kg): {{character_info.mass}}</li>
-    <li>Hair Color: {{character_info.hair_color}}</li>
-    <li>Eye Color: {{character_info.eye_color}}</li>
-    <li>Homeworld: {{homeworld.name}}</li>
-  </ul>
-  <p>List of films:</p>
-  <ul>
-    {% for film in films %}
-    <li>{{film}}</li>
-    {% endfor %}
-  </ul>
+  <p class="character-name">Your selected character was:</p>
+  <p class="character-name" id="selected-character">{{character_info.name}}</p>
+  <section class="information-section">
+    <section>
+      <h3>Information:</h3>
+      <ul class="information-box">
+        <li>Height (cm): {{character_info.height}}</li>
+        <li>Mass (kg): {{character_info.mass}}</li>
+        <li>Hair Color: {{character_info.hair_color}}</li>
+        <li>Eye Color: {{character_info.eye_color}}</li>
+        <li>Homeworld: {{homeworld.name}}</li>
+      </ul>
+    </section>  
+    <section>
+      <h3>List of films:</h3>
+      <ul class="information-box">
+        {% for film in films %}
+        <li>{{film}}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </section>
 </section>
 {% endblock %}

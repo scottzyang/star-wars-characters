@@ -1,0 +1,58 @@
+h1 {
+  text-align: center;
+}
+
+body {
+  background-image: url('../../static/space.webp');
+  color: rgb(248, 212, 9);
+  font-family: 'Orbitron', sans-serif;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+.character-name {
+  font-size: 1.5em;
+  background-color: rgb(22, 22, 22);
+}
+
+#main-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+li {
+  margin: 10px 10px;
+  list-style-type: none;
+}
+
+.information-box {
+  background-color: rgb(22, 22, 22);
+  border: solid 8px rgb(225, 160, 7);
+  margin: 0 1em;
+}
+
+.information-section {
+  display: flex;
+}
+
+.information-section>* {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#selected-character {
+  color: gold;
+  border: solid 8px rgb(225, 160, 7);
+  padding: 1em;
+}
+
+#form-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

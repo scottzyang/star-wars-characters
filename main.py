@@ -23,13 +23,21 @@ def character_search():
   character_info = response.json()
   
   # get homeworld response using character above, and parse to python
-  homeworld_response = requests.get(character_info['homeworld'])
-  current_homeworld = homeworld_response.json()
+  try:
+    homeworld_response = requests.get(character_info['homeworld'])
+    current_homeworld = homeworld_response.json()
+  except KeyError:
+    print(f'KeyError: Setting current_homeworld to N/A')
+    current_homeworld = 'N/A'
 
   # list comprehension
   # for each film in the character_info.films grab response for each film API URL and parse it to python, and acquire the name
   # once acquired, add it to the list
-  films = [requests.get(film).json()['title'] for film in character_info['films']]
+  try:
+    films = [requests.get(film).json()['title'] for film in character_info['films']]
+  except KeyError:
+    print('KeyError: Setting films to N/A')
+    films = ['N/A']
 
   context = {
     'character_info': character_info,

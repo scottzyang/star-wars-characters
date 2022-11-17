@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Star Wars Character Search!
+<title>Star Wars Character Search!</title>
+<link rel="stylesheet" href="../styles.css">
 {% endblock %}
 
 
@@ -9,19 +10,17 @@ Star Wars Character Search!
 <header>
   <h1>Search Star Wars character!</h1>
 </header>
-<form>
-  <fieldset>
-    <legend>Character Search</legend>
-    <form action="/" method="GET">
-      <label for="character-search">
-        Type in a random number between 1 and 88 to randomly generate a character!
-      </label>
-      <p>We've selected Character ID: 1 for you!</p>
-      <input type="text" name="character-id" id="character-search" value="1">
-      <input type="submit" name="search-submit" value="Search for Character!">
-    </form>
-  </fieldset>
-</form>
+<fieldset>
+  <legend>Character Search</legend>
+  <form action="/" method="GET">
+    <label for="character-search">
+      Type in a random number between 1 and 88 to randomly generate a character!
+    </label>
+    <p>We've selected Character ID: 1 for you!</p>
+    <input type="text" name="character-id" id="character-search" value="1">
+    <input type="submit" name="search-submit" value="Search for Character!">
+  </form>
+</fieldset>
 
 <section id="form-results">
   <h2>Here is your character information!</h2>
@@ -32,6 +31,13 @@ Star Wars Character Search!
     <li>Mass (kg): {{character_info.mass}}</li>
     <li>Hair Color: {{character_info.hair_color}}</li>
     <li>Eye Color: {{character_info.eye_color}}</li>
+    <li>Homeworld: {{homeworld.name}}</li>
+  </ul>
+  <p>List of films:</p>
+  <ul>
+    {% for film in films %}
+    <li>{{film}}</li>
+    {% endfor %}
   </ul>
 </section>
 {% endblock %}

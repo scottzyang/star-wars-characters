@@ -16,7 +16,7 @@ def character_search():
   character_id = request.args.get('character-id')
   # if input is not provided, default to 1
   if not character_id:
-    character_id = '1'
+    character_id = '0'
 
   # get character info response using the character ID above and parse to python
   response = requests.get(SWAPI_URL + "people/" + character_id)

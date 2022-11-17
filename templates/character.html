@@ -16,7 +16,8 @@ Star Wars Character Search!
       <label for="character-search">
         Type in a random number between 1 and 88 to randomly generate a character!
       </label>
-      <input type="text" name="character-id" id="character-search">
+      <p>We've selected Character ID: 1 for you!</p>
+      <input type="text" name="character-id" id="character-search" value="1">
       <input type="submit" name="search-submit" value="Search for Character!">
     </form>
   </fieldset>
@@ -25,5 +26,12 @@ Star Wars Character Search!
 <section id="form-results">
   <h2>Here is your character information!</h2>
   <p>Your selected character was <b>{{character_info.name}}</b></p>
+  <p>Information:</p>
+  <ul>
+    <li>Height (cm): {{character_info.height}}</li>
+    <li>Mass (kg): {{character_info.mass}}</li>
+    <li>Hair Color: {{character_info.hair_color}}</li>
+    <li>Eye Color: {{character_info.eye_color}}</li>
+  </ul>
 </section>
 {% endblock %}

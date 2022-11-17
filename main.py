@@ -7,15 +7,16 @@ import requests
 app = Flask(__name__)
 
 # set API URL
-SWAPI_URL = 'https://swapi.py4e.com/api/people/1'
+SWAPI_URL = 'https://swapi.py4e.com/api/'
 
 # create route for SWAPI results
 @app.route('/', methods=['GET'])
 def character_search():
-  # character_id = request.args.get('character-id')
+  character_id = request.args.get('character-id')
+  if not character_id:
+    character_id = '1'
 
-  response = requests.get(
-    SWAPI_URL)
+  response = requests.get(SWAPI_URL + "people/" + character_id)
 
   character_info = response.json()
 

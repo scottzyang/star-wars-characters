@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 # set API URL
 SWAPI_URL = 'https://swapi.py4e.com/api/'
+TENOR_URL = 'https://tenor.googleapis.com/v2/search?'
 
 # create route for SWAPI results
 @app.route('/', methods=['GET'])

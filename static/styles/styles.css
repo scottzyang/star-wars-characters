@@ -50,6 +50,10 @@ li {
   display: flex;
 }
 
+#main-gif {
+  border: solid 8px rgb(225, 160, 7)
+}
+
 .information-section>* {
   display: flex;
   flex-direction: column;

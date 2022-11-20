@@ -2,9 +2,14 @@
 from flask import Flask, request, render_template
 import json
 import requests
+import os
+from dotenv import load_dotenv
 
 # initialize app
 app = Flask(__name__)
+
+# search macOS for api key
+API_KEY = os.getenv('API_KEY')
 
 # set API URL
 SWAPI_URL = 'https://swapi.py4e.com/api/'
@@ -40,10 +45,29 @@ def character_search():
     print('KeyError: Setting films to N/A')
     films = ['N/A']
 
+  try:
+    character_name = character_info['name']
+  except KeyError:
+    print('KeyError: Setting character_name to Star Wars')
+    character_name = 'Star Wars'
+
+  # get gif from tenor url
+  tenor_request = requests.get(
+    TENOR_URL, 
+  {
+    'q': character_name,
+    'key': API_KEY,
+    'limit': 1,
+  })
+
+  gifs = json.loads(tenor_request.content).get('results')
+  
+
   context = {
     'character_info': character_info,
     'films': films,
-    'homeworld': current_homeworld
+    'homeworld': current_homeworld,
+    'gifs': gifs
   }
 
   return render_template('character.html', **context)

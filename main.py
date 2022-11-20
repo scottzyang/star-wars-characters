@@ -49,7 +49,7 @@ def character_search():
     character_name = character_info['name']
   except KeyError:
     print('KeyError: Setting character_name to Star Wars')
-    character_name = 'Star Wars'
+    character_name = 'star wars logo'
 
   # get gif from tenor url
   tenor_request = requests.get(
